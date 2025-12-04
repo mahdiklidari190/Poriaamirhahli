@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Real Wolves Academy | Gamified Business Training for Entrepreneurs</title>
+  <meta name="description" content="Join 2,847+ entrepreneurs earning ranks while building real businesses. Gamified academy with missions, mentorship, and capital access. Not theory—real revenue.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="wolves-platform-widget">
+<style>
+:root {
+  --wolf-black: #0A0A0A;
+  --wolf-gold: #FFD700;
+  --wolf-gold-dark: #B8860B;
+  --wolf-red: #FF073A;
+  --wolf-gray-900: #1A1A1A;
+  --wolf-gray-800: #2A2A2A;
+  --wolf-white: #FFFFFF;
+  --wolf-glass: rgba(255, 215, 0, 0.08);
+  --wolf-glass-strong: rgba(255, 215, 0, 0.15);
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --fs-hero: clamp(3rem, 7vw, 6rem);
+  --fs-h2: clamp(2rem, 4vw, 3.5rem);
+  --fs-h3: clamp(1.1rem, 2vw, 1.4rem);
+  --fs-body: clamp(0.95rem, 1.8vw, 1.1rem);
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 2rem;
+  --space-lg: 4rem;
+  --space-xl: 6rem;
+  --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.wolves-platform-widget {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-primary);
+  background: var(--wolf-black);
+  color: var(--wolf-white);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+.wolves-hero-pro {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-lg) var(--space-md);
+  position: relative;
+  overflow: hidden;
+  background-image: 
+    linear-gradient(135deg, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.95) 100%),
+    url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1920&h=1080&fit=crop&auto=format');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+.hero-shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.shape {
+  position: absolute;
+  border: 2px solid var(--wolf-gold);
+  border-radius: 50%;
+  opacity: 0.08;
+  animation: float 20s infinite ease-in-out;
+  will-change: transform;
+}
+.shape-1 {
+  width: 400px;
+  height: 400px;
+  top: 10%;
+  left: -200px;
+}
+.shape-2 {
+  width: 250px;
+  height: 250px;
+  bottom: 10%;
+  right: -125px;
+  border-color: var(--wolf-red);
+  animation-delay: -5s;
+  animation-duration: 25s;
+}
+.hero-content-pro {
+  text-align: center;
+  max-width: 900px;
+  z-index: 2;
+  animation: fadeInUp 1s ease-out;
+}
+.hero-title-pro {
+  font-size: var(--fs-hero);
+  font-weight: 900;
+  color: var(--wolf-white);
+  letter-spacing: -3px;
+  line-height: 1.05;
+  margin-bottom: var(--space-md);
+  text-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+.hero-title-pro span {
+  color: var(--wolf-gold);
+  position: relative;
+  display: inline-block;
+}
+.hero-title-pro span::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: linear-gradient(90deg, var(--wolf-gold), var(--wolf-gold-dark));
+  border-radius: 3px;
+  transform: scaleX(0);
+  animation: lineGrow 1s ease-out 0.5s forwards;
+}
+.hero-sub-pro {
+  font-size: var(--fs-body);
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: var(--space-lg);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInUp 1s ease-out 0.3s both;
+}
+.cta-primary {
+  background: linear-gradient(90deg, var(--wolf-gold), var(--wolf-gold-dark));
+  color: var(--wolf-black);
+  padding: 20px 60px;
+  font-size: 1.1rem;
+  font-weight: 900;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: var(--transition);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  position: relative;
+  overflow: hidden;
+  animation: fadeInUp 1s ease-out 0.6s both;
+  will-change: transform;
+}
+.cta-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.6s;
+}
+.cta-primary:hover::before {
+  left: 100%;
+}
+.cta-primary:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 20px 50px rgba(255, 215, 0, 0.4);
+}
+.wolves-video-hub {
+  padding: var(--space-xl) var(--space-md);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.video-main-title {
+  text-align: center;
+  font-size: var(--fs-h2);
+  color: var(--wolf-gold);
+  margin-bottom: var(--space-md);
+}
+.video-main-title span {
+  color: var(--wolf-white);
+  font-weight: 400;
+}
+.video-standalone {
+  width: 100%;
+  height: 650px;
+  border-radius: 24px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  background: linear-gradient(135deg, #000 0%, var(--wolf-gray-800) 100%);
+  display: block;
+}
+.video-controls-standalone {
+  background: var(--wolf-gray-800);
+  padding: var(--space-md);
+  border-radius: 0 0 24px 24px;
+  margin-top: -5px;
+  border-left: 1px solid rgba(255, 215, 0, 0.1);
+  border-right: 1px solid rgba(255, 215, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 215, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.current-video-info {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+#currentVideoTitle {
+  font-weight: 700;
+  color: var(--wolf-gold);
+  font-size: var(--fs-h3);
+}
+.video-duration {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+}
+.playlist-section {
+  position: relative;
+  margin-top: var(--space-lg);
+}
+.playlist-wrapper {
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: thin;
+  scrollbar-color: var(--wolf-gold) var(--wolf-gray-900);
+}
+.playlist-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+.playlist-wrapper::-webkit-scrollbar-track {
+  background: var(--wolf-gray-900);
+  border-radius: 4px;
+}
+.playlist-wrapper::-webkit-scrollbar-thumb {
+  background: var(--wolf-gold);
+  border-radius: 4px;
+}
+.playlist-horizontal {
+  display: flex;
+  gap: var(--space-sm);
+  padding: var(--space-sm) 0;
+  scroll-snap-type: x mandatory;
+}
+.video-card {
+  flex: 0 0 320px;
+  background: var(--wolf-glass);
+  border: 1px solid rgba(255, 215, 0, 0.1);
+  border-radius: 16px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition);
+  scroll-snap-align: start;
+  position: relative;
+  will-change: transform;
+}
+.video-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  border-color: var(--wolf-gold);
+  box-shadow: 0 15px 40px rgba(255, 215, 0, 0.2);
+}
+.video-card.active {
+  border-color: var(--wolf-gold);
+  background: var(--wolf-glass-strong);
+  box-shadow: 0 10px 30px rgba(255, 215, 0, 0.15);
+}
+.thumbnail-wrapper {
+  position: relative;
+  aspect-ratio: 16/9;
+  overflow: hidden;
+}
+.thumbnail-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.video-card:hover .thumbnail-wrapper img {
+  transform: scale(1.08);
+}
+.play-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.play-overlay:focus {
+  outline: 2px solid var(--wolf-gold);
+  outline-offset: -2px;
+}
+.video-card:hover .play-overlay {
+  opacity: 1;
+}
+.play-icon {
+  width: 60px;
+  height: 60px;
+  background: var(--wolf-gold);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 1.8rem;
+  color: var(--wolf-black);
+  transition: transform 0.3s;
+}
+.video-card:hover .play-icon {
+  transform: scale(1.1);
+}
+.video-duration-badge {
+  position: absolute;
+  top: var(--space-xs);
+  right: var(--space-xs);
+  background: rgba(0, 0, 0, 0.8);
+  color: var(--wolf-white);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.video-meta {
+  padding: var(--space-sm);
+}
+.video-meta h4 {
+  font-size: var(--fs-h3);
+  margin-bottom: var(--space-xs);
+  color: var(--wolf-white);
+  font-weight: 700;
+}
+.video-meta p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  line-height: 1.4;
+}
+.scroll-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  background: var(--wolf-gold);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  font-size: 1.5rem;
+  color: var(--wolf-black);
+  transition: var(--transition);
+  z-index: 10;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+}
+.scroll-btn:hover {
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
+}
+.scroll-btn.left {
+  left: -25px;
+}
+.scroll-btn.right {
+  right: -25px;
+}
+.wolves-about {
+  padding: var(--space-xl) var(--space-md);
+  background: radial-gradient(circle at 30% 70%, var(--wolf-glass) 0%, transparent 50%);
+}
+.about-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+  align-items: center;
+}
+.about-content h2 {
+  font-size: var(--fs-h2);
+  color: var(--wolf-gold);
+  margin-bottom: var(--space-md);
+}
+.about-content p {
+  font-size: var(--fs-body);
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 1.5rem;
+}
+.about-content strong {
+  color: var(--wolf-gold);
+}
+.about-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-sm);
+}
+.stat-box {
+  background: var(--wolf-glass);
+  border-radius: 12px;
+  padding: var(--space-md);
+  text-align: center;
+  border: 1px solid rgba(255, 215, 0, 0.1);
+  transition: var(--transition);
+  will-change: transform;
+}
+.stat-box:hover {
+  transform: translateY(-5px);
+  border-color: var(--wolf-gold);
+}
+.stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--wolf-gold);
+}
+.stat-label {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: var(--space-xs);
+}
+.wolves-mission-vision {
+  padding: var(--space-xl) var(--space-md);
+  background: linear-gradient(180deg, var(--wolf-gray-900) 0%, var(--wolf-black) 100%);
+}
+.mission-grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-lg);
+}
+.mission-card,
+.vision-card {
+  background: var(--wolf-glass);
+  border: 1px solid rgba(255, 215, 0, 0.1);
+  border-radius: 20px;
+  padding: var(--space-lg);
+  transition: var(--transition);
+}
+.mission-card:hover,
+.vision-card:hover {
+  border-color: var(--wolf-gold);
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(255, 215, 0, 0.1);
+}
+.mission-card h3,
+.vision-card h3 {
+  color: var(--wolf-gold);
+  font-size: var(--fs-h3);
+  margin-bottom: var(--space-sm);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.wolves-programs {
+  padding: var(--space-xl) var(--space-md);
+  background: radial-gradient(circle at 30% 40%, var(--wolf-glass) 0%, transparent 50%);
+}
+.programs-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.programs-title {
+  text-align: center;
+  font-size: var(--fs-h2);
+  color: var(--wolf-gold);
+  margin-bottom: var(--space-lg);
+}
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-sm);
+}
+.program-card {
+  background: var(--wolf-glass);
+  border: 1px solid rgba(255, 215, 0, 0.1);
+  border-radius: 16px;
+  padding: var(--space-md);
+  transition: var(--transition);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.program-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--wolf-glass-strong), transparent);
+  transition: left 0.6s;
+}
+.program-card:hover::before {
+  left: 100%;
+}
+.program-card:hover {
+  border-color: var(--wolf-gold);
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(255, 215, 0, 0.15);
+}
+.program-icon {
+  font-size: 2.5rem;
+  margin-bottom: var(--space-sm);
+  transition: transform 0.3s;
+}
+.program-card:hover .program-icon {
+  transform: scale(1.2) rotate(5deg);
+}
+.program-card h3 {
+  color: var(--wolf-gold);
+  font-size: var(--fs-h3);
+  margin-bottom: var(--space-xs);
+  transition: color 0.3s;
+}
+.program-card:hover h3 {
+  color: var(--wolf-white);
+}
+.program-card p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+.program-card:hover p {
+  color: rgba(255, 255, 255, 0.9);
+}
+.wolves-faq {
+  padding: var(--space-xl) var(--space-md);
+  max-width: 900px;
+  margin: 0 auto;
+}
+.faq-title {
+  text-align: center;
+  font-size: var(--fs-h2);
+  color: var(--wolf-gold);
+  margin-bottom: var(--space-lg);
+}
+.faq-item {
+  background: var(--wolf-glass);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 215, 0, 0.1);
+  margin-bottom: var(--space-sm);
+  overflow: hidden;
+  transition: var(--transition);
+}
+.faq-item:hover {
+  border-color: rgba(255, 215, 0, 0.3);
+}
+.faq-question {
+  padding: var(--space-md);
+  font-weight: 700;
+  color: var(--wolf-gold);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: var(--transition);
+  gap: var(--space-sm);
+}
+.faq-question:hover {
+  background: var(--wolf-glass-strong);
+}
+/* Updated FAQ Toggle Styles - Hollow Golden Circle */
+.faq-toggle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  line-height: 1;
+  border: 2px solid var(--wolf-gold);
+  background: transparent;
+  color: var(--wolf-gold);
+  flex-shrink: 0;
+  user-select: none;
+}
+.faq-toggle:hover {
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+}
+.faq-answer {
+  padding: 0 var(--space-md);
+  color: rgba(255, 255, 255, 0.8);
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1), 
+              padding 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.faq-answer.active {
+  max-height: 300px;
+  padding: 0 var(--space-md) var(--space-md);
+}
+.faq-answer p {
+  margin: 0;
+  padding-bottom: var(--space-sm);
+}
+.wolves-final-cta {
+  padding: var(--space-xl) var(--space-md);
+  text-align: center;
+  background: radial-gradient(circle at 50% 50%, var(--wolf-glass-strong) 0%, transparent 50%);
+}
+.cta-final-title {
+  font-size: var(--fs-h2);
+  color: var(--wolf-gold);
+  margin-bottom: var(--space-md);
+}
+.cta-final-sub {
+  max-width: 600px;
+  margin: 0 auto var(--space-lg);
+  color: rgba(255, 255, 255, 0.8);
+}
+.wolves-modal-pro {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+  z-index: 9999;
+  place-items: center;
+  backdrop-filter: blur(20px);
+  animation: fadeIn 0.3s ease;
+}
+.modal-content-pro {
+  background: var(--wolf-gray-900);
+  border: 2px solid var(--wolf-gold);
+  border-radius: 24px;
+  padding: var(--space-lg);
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+  position: relative;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+  animation: scaleIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.close-modal-pro {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-md);
+  font-size: 2.5rem;
+  cursor: pointer;
+  color: var(--wolf-gold);
+  transition: var(--transition);
+  width: 50px;
+  height: 50px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+}
+.close-modal-pro:hover {
+  transform: rotate(90deg);
+  background: var(--wolf-glass-strong);
+}
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes lineGrow {
+  to {
+    transform: scaleX(1);
+  }
+}
+@keyframes float {
+  0%, 100% { transform: translate(0,0) rotate(0deg); }
+  33% { transform: translate(40px,-40px) rotate(120deg); }
+  66% { transform: translate(-30px,30px) rotate(240deg); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@media (max-width: 1200px) {
+  .scroll-btn {
+    display: none;
+  }
+}
+@media (max-width: 968px) {
+  .wolves-hero-pro {
+    background-attachment: scroll;
+    min-height: 80vh;
+  }
+  .hero-title-pro {
+    letter-spacing: -1px;
+  }
+  .video-standalone {
+    height: 400px;
+  }
+  .about-grid,
+  .mission-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  .video-card {
+    flex: 0 0 280px;
+  }
+}
+@media (max-width: 640px) {
+  :root {
+    --space-md: 1.5rem;
+    --space-lg: 3rem;
+    --space-xl: 5rem;
+  }
+  .cta-primary {
+    padding: 18px 40px;
+    font-size: 1rem;
+  }
+  .video-standalone {
+    height: 250px;
+  }
+  .video-controls-standalone {
+    flex-direction: column;
+    gap: var(--space-xs);
+    align-items: flex-start;
+  }
+  .current-video-info {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .about-stats {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+}
+</style>
+
+<!-- ========== JSON-LD STRUCTURED DATA ========== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "The Real Wolves Academy",
+  "alternateName": ["Wolves Academy", "AmirHajlou Academy"],
+  "description": "A gamified business academy where entrepreneurs earn ranks, complete revenue-generating missions, and join a global brotherhood of elite creators.",
+  "url": "https://therealwolves.academy",
+  "logo": "https://therealwolves.academy/logo.png",
+  "founder": { "@type": "Person", "name": "Amir Hajlou" },
+  "offers": { "@type": "Offer", "availability": "https://schema.org/InStock", "priceCurrency": "USD", "category": "Business Education" },
+  "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "2847", "bestRating": "5" },
+  "address": { "@type": "PostalAddress", "addressCountry": "US" },
+  "sameAs": ["https://www.instagram.com/therealwolvesacademy", "https://www.youtube.com/@therealwolvesacademy"]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Gamified education system with ranks, missions, and achievements",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Our rank system transforms learning into an addictive game. Start as a Cub and climb to Legend status by completing real business missions. Each rank unlocks exclusive capital opportunities, mentorship access, and revenue-sharing partnerships. This isn't theory—it's a battlefield where achievements equal real money in your bank account."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Practical courses built by entrepreneurs, not academics",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Every course is designed by 7-figure entrepreneurs who've been in the trenches. No fluff. No outdated theory. Just battle-tested strategies that work in 2024's market."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Community-driven growth with accountability and mentorship",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Join a global brotherhood of 2,847+ creators, entrepreneurs, and warriors united by ambition. Our Discord runs 24/7 with live accountability calls, weekly masterminds, and rank-based mentorship."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Life-changing frameworks that blend power, purpose, and passion",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We don't just teach business—we forge disciplined individuals ready to dominate in business and life. Our frameworks integrate mindset mastery, money mechanics, and elite performance systems."
+      }
+    }
+  ]
+}
+</script>
+
+<!-- ========== HERO SECTION ========== -->
+<section class="wolves-hero-pro" itemscope itemtype="https://schema.org/Organization">
+  <div class="hero-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+  </div>
+  <div class="hero-content-pro">
+    <h1 class="hero-title-pro" itemprop="name">Train Like a <span>Wolf</span>.<br>Lead Like a Legend.</h1>
+    <p class="hero-sub-pro" itemprop="description">This isn't an online course. It's a gamified battlefield where you earn ranks, complete missions, and build a real business alongside elite entrepreneurs.</p>
+    <button class="cta-primary" itemprop="potentialAction">Enter The Pack</button>
+  </div>
+</section>
+
+<!-- ========== ABOUT SECTION ========== -->
+<section class="wolves-about" id="about">
+  <div class="about-grid">
+    <div class="about-content">
+      <h2>About The Real Wolves Academy</h2>
+      <p>The Real Wolves Academy is the educational and empowerment division of AmirHajlou Holding, built to awaken leadership, wealth, and self-mastery.</p>
+      <p><strong>This isn’t a typical online school</strong>—it’s a gamified academy where personal growth meets business evolution. Here, students don’t just learn skills—they earn ranks, complete missions, and join a global brotherhood of creators, entrepreneurs, and warriors united by ambition.</p>
+      <p>The Academy merges entertainment, accountability, and elite mentorship to forge stronger, smarter, more disciplined individuals ready to dominate in business and life.</p>
+      <p><strong>Target Audience:</strong> Aspiring entrepreneurs, creators, and leaders who seek more than theory—those who crave transformation, freedom, and financial independence through modern education.</p>
+    </div>
+    <div class="about-stats">
+      <div class="stat-box">
+        <span class="stat-number">2,847</span>
+        <span class="stat-label">Active Wolves</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number">$12.4M</span>
+        <span class="stat-label">Combined Revenue</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number">23</span>
+        <span class="stat-label">Avg Days to First Sale</span>
+      </div>
+      <div class="stat-box">
+        <span class="stat-number">94%</span>
+        <span class="stat-label">Mission Success Rate</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== VIDEO LEARNING HUB ========== -->
+<section class="wolves-video-hub" id="training">
+  <h2 class="video-main-title">The Wolf's Den <span>(Free Training Videos)</span></h2>
+  
+  <video id="wolfVideoPlayer" class="video-standalone" controls poster="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=450&fit=crop">
+    <source src="https://therealwolves.academy/videos/welcome.mp4" type="video/mp4">
+  </video>
+  
+  <div class="video-controls-standalone">
+    <div class="playlist-title">Training Playlist</div>
+    <div class="current-video-info">
+      <span id="currentVideoTitle">Welcome To The Pack</span>
+      <span class="video-duration" id="currentVideoDuration">4:32</span>
+    </div>
+  </div>
+  
+  <div class="playlist-section">
+    <button class="scroll-btn left" aria-label="Scroll left">‹</button>
+    <button class="scroll-btn right" aria-label="Scroll right">›</button>
+    <div class="playlist-wrapper" id="playlistWrapper">
+      <div class="playlist-horizontal" id="videoPlaylist"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MISSION & VISION ========== -->
+<section class="wolves-mission-vision">
+  <div class="mission-grid">
+    <div class="mission-card">
+      <h3>Mission</h3>
+      <p>To build a generation of fearless leaders equipped with real-world digital, financial, and entrepreneurial skills—turning potential into power and knowledge into legacy.</p>
+    </div>
+    <div class="vision-card">
+      <h3>Vision</h3>
+      <p>To redefine global education by transforming learning into an immersive, gamified journey that combines mindset, money, and mastery.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CORE PROGRAMS ========== -->
+<section class="wolves-programs" id="programs">
+  <div class="programs-container">
+    <h2 class="programs-title">Core Programs</h2>
+    <div class="programs-grid">
+      <article class="program-card" itemscope itemtype="https://schema.org/Course">
+        <meta itemprop="name" content="Entrepreneurship & Business Strategy">
+        <div class="program-icon">⚔️</div>
+        <h3>Entrepreneurship & Business Strategy</h3>
+        <p>Practical courses built by entrepreneurs, not academics. Learn to forge stronger, smarter, more disciplined business strategies.</p>
+      </article>
+      <article class="program-card" itemscope itemtype="https://schema.org/Course">
+        <meta itemprop="name" content="Digital Skills & Marketing">
+        <div class="program-icon">🐾</div>
+        <h3>Digital Skills & Marketing</h3>
+        <p>Master digital skills and marketing that actually work in today's market. Community-driven growth with accountability.</p>
+      </article>
+      <article class="program-card" itemscope itemtype="https://schema.org/Course">
+        <meta itemprop="name" content="Financial Growth & Wealth Building">
+        <div class="program-icon">💰</div>
+        <h3>Financial Growth & Wealth Building</h3>
+        <p>Build real wealth through life-changing frameworks that blend power, purpose, and passion with financial mastery.</p>
+      </article>
+      <article class="program-card" itemscope itemtype="https://schema.org/Course">
+        <meta itemprop="name" content="Mindset Mastery & Leadership">
+        <div class="program-icon">🧠</div>
+        <h3>Mindset Mastery & Leadership</h3>
+        <p>Awaken leadership and self-mastery through elite mentorship and proven psychological frameworks.</p>
+      </article>
+      <article class="program-card" itemscope itemtype="https://schema.org/Course">
+        <meta itemprop="name" content="Productivity & Self-Discipline Systems">
+        <div class="program-icon">⛓️</div>
+        <h3>Productivity & Self-Discipline Systems</h3>
+        <p>Transform your potential into power with disciplined systems that create lasting legacy and freedom.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FAQ - Why Choose Us ========== -->
+<section class="wolves-faq" itemscope itemtype="https://schema.org/FAQPage">
+  <h2 class="faq-title">Why The Real Wolves Academy</h2>
+  
+  <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <div class="faq-question" itemprop="name">
+      <span>Gamified education system with ranks, missions, and achievements</span>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+      <p>Our rank system transforms learning into an addictive game. Start as a Cub and climb to Legend status by completing real business missions. Each rank unlocks exclusive capital opportunities, mentorship access, and revenue-sharing partnerships.</p>
+    </div>
+  </div>
+  
+  <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <div class="faq-question" itemprop="name">
+      <span>Practical courses built by entrepreneurs, not academics</span>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+      <p>Every course is designed by 7-figure entrepreneurs who've been in the trenches. No fluff. No outdated theory. Just battle-tested strategies that work in 2024's market.</p>
+    </div>
+  </div>
+  
+  <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <div class="faq-question" itemprop="name">
+      <span>Community-driven growth with accountability and mentorship</span>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+      <p>Join a global brotherhood of 2,847+ creators, entrepreneurs, and warriors united by ambition. Our Discord runs 24/7 with live accountability calls, weekly masterminds, and rank-based mentorship.</p>
+    </div>
+  </div>
+  
+  <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
+    <div class="faq-question" itemprop="name">
+      <span>Life-changing frameworks that blend power, purpose, and passion</span>
+      <span class="faq-toggle">+</span>
+    </div>
+    <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
+      <p>We don't just teach business—we forge disciplined individuals ready to dominate in business and life. Our frameworks integrate mindset mastery, money mechanics, and elite performance systems.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FINAL CTA ========== -->
+<section class="wolves-final-cta">
+  <h2 class="cta-final-title">Enter the Pack. Evolve Beyond Average.</h2>
+  <p class="cta-final-sub">Aspiring entrepreneurs, creators, and leaders who crave transformation, freedom, and financial independence—this is your call to action.</p>
+  <button class="cta-primary" id="finalCtaBtn">Submit Application</button>
+</section>
+
+<!-- ========== MODAL ========== -->
+<div class="wolves-modal-pro" id="wolfModalPro" role="dialog" aria-modal="true">
+  <div class="modal-content-pro">
+    <span class="close-modal-pro" aria-label="Close modal">&times;</span>
+    <h2 style="color:var(--wolf-gold); margin-bottom:1rem;">The Council Is Watching</h2>
+    <p id="modalMessagePro" style="margin-bottom:1.5rem;">Your application has been received. If accepted, your first mission arrives within 24 hours.</p>
+    <button class="cta-primary" id="modalConfirmBtn">I'm Ready</button>
+  </div>
+</div>
+
+<script>
+const videoData = [
+  {id:'intro', title:'Welcome To The Pack', description:'Your first mission briefing - Learn how our gamified academy works', duration:'4:32', thumbnail:'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=225', videoUrl:'https://therealwolves.academy/videos/welcome.mp4'},
+  {id:'mindset', title:'The Wolf Mindset', description:'How champions think differently to dominate markets', duration:'7:15', thumbnail:'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400&h=225', videoUrl:'https://therealwolves.academy/videos/mindset.mp4'},
+  {id:'first-sale', title:'Your First $1,000', description:'Step-by-step blueprint to make your first sale in 30 days', duration:'12:40', thumbnail:'https://images.unsplash.com/photo-1563986768609-322da13575f3?w=400&h=225', videoUrl:'https://therealwolves.academy/videos/first-sale.mp4'},
+  {id:'scaling', title:'Scaling To $10K/Month', description:'Systems that scale without burning out or hiring a team', duration:'9:28', thumbnail:'https://images.unsplash.com/photo-1554224155-8d52cb6c0d7f?w=400&h=225', videoUrl:'https://therealwolves.academy/videos/scaling.mp4'},
+  {id:'ads', title:'Paid Ads Mastery', description:'Turn every $1 into $3 with our proven ad frameworks', duration:'15:22', thumbnail:'https://images.unsplash.com/photo-1563227812-0ea4c22e6cc8?w=400&h=225', videoUrl:'https://therealwolves.academy/videos/ads.mp4'},
+  {id:'team', title:'Building Your Wolf Pack', description:'Hire and lead a team that executes your vision', duration:'8:45', thumbnail:'https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=400&h=225', videoUrl:'https://therealwolves.academy/videos/team.mp4'}
+];
+
+class WolfVideoHub {
+  constructor() {
+    this.player = document.getElementById('wolfVideoPlayer');
+    this.currentTitle = document.getElementById('currentVideoTitle');
+    this.currentDuration = document.getElementById('currentVideoDuration');
+    this.playlist = document.getElementById('videoPlaylist');
+    this.currentIndex = 0;
+    this.init();
+  }
+  
+  init() {
+    this.renderPlaylist();
+    this.loadVideo(0);
+    this.addEventListeners();
+  }
+  
+  renderPlaylist() {
+    this.playlist.innerHTML = videoData.map((video, index) => `
+      <div class="video-card ${index === 0 ? 'active' : ''}" data-video-id="${video.id}" data-index="${index}" itemscope itemtype="https://schema.org/VideoObject">
+        <meta itemprop="name" content="${video.title}">
+        <meta itemprop="description" content="${video.description}">
+        <meta itemprop="duration" content="${video.duration}">
+        <div class="thumbnail-wrapper">
+          <img src="${video.thumbnail}" alt="${video.title}" loading="lazy" itemprop="thumbnailUrl">
+          <div class="play-overlay" tabindex="0" role="button" aria-label="Play video"><div class="play-icon">▶</div></div>
+          <div class="video-duration-badge">${video.duration}</div>
+        </div>
+        <div class="video-meta">
+          <h4 itemprop="name">${video.title}</h4>
+          <p itemprop="description">${video.description}</p>
+        </div>
+      </div>
+    `).join('');
+  }
+  
+  loadVideo(index) {
+    const video = videoData[index];
+    if (!video) return;
+    
+    this.player.src = video.videoUrl;
+    this.currentTitle.textContent = video.title;
+    this.currentDuration.textContent = video.duration;
+    
+    document.querySelectorAll('.video-card').forEach((card, i) => {
+      card.classList.toggle('active', i === index);
+    });
+    
+    this.currentIndex = index;
+    
+    const activeCard = document.querySelector(`[data-index="${index}"]`);
+    if (activeCard) activeCard.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+    
+    this.player.onerror = () => {
+      console.error('Video load failed');
+      this.player.poster = video.thumbnail;
+    };
+  }
+  
+  addEventListeners() {
+    this.playlist.addEventListener('click', (e) => {
+      const card = e.target.closest('.video-card');
+      if (!card) return;
+      const index = parseInt(card.dataset.index);
+      this.loadVideo(index);
+      this.player.play().catch(() => console.log('Autoplay blocked'));
+    });
+    
+    this.playlist.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        const card = e.target.closest('.video-card');
+        if (!card) return;
+        const index = parseInt(card.dataset.index);
+        this.loadVideo(index);
+        this.player.play().catch(() => console.log('Autoplay blocked'));
+      }
+    });
+    
+    this.player.addEventListener('ended', () => {
+      const nextIndex = (this.currentIndex + 1) % videoData.length;
+      this.loadVideo(nextIndex);
+      setTimeout(() => this.player.play().catch(() => console.log('Autoplay blocked')), 500);
+    });
+  }
+}
+
+function triggerModalPro(type) {
+  const modal = document.getElementById('wolfModalPro');
+  const messages = {
+    enroll: '🐺 The Alpha Council has received your application. You will receive a personal invitation within 24 hours.',
+    final: 'Your evolution begins now. Check your email for your first mission within 24 hours. Welcome to the pack.'
+  };
+  document.getElementById('modalMessagePro').textContent = messages[type] || messages.enroll;
+  modal.style.display = 'grid';
+  document.body.style.overflow = 'hidden';
+  if (typeof gtag === 'undefined') console.log('Modal triggered:', type);
+}
+
+function closeModalPro() {
+  document.getElementById('wolfModalPro').style.display = 'none';
+  document.body.style.overflow = 'auto';
+}
+
+function toggleFaq(element) {
+  const answer = element.nextElementSibling;
+  const toggle = element.querySelector('.faq-toggle');
+  
+  // Close all other FAQs
+  document.querySelectorAll('.faq-answer').forEach(ans => {
+    if (ans !== answer) {
+      ans.classList.remove('active');
+    }
+  });
+  document.querySelectorAll('.faq-toggle').forEach(ic => {
+    if (ic !== toggle) {
+      ic.classList.remove('active');
+      ic.textContent = '+'; // Reset others to plus
+    }
+  });
+  
+  // Toggle current FAQ
+  if (answer.classList.contains('active')) {
+    answer.classList.remove('active');
+    toggle.classList.remove('active');
+    toggle.textContent = '+';
+  } else {
+    answer.classList.add('active');
+    toggle.classList.add('active');
+    toggle.textContent = '-';
+  }
+  
+  if (typeof gtag === 'undefined') console.log('FAQ toggled:', element.textContent.trim().substring(0, 30));
+}
+
+function scrollPlaylist(direction) {
+  const wrapper = document.getElementById('playlistWrapper');
+  wrapper.scrollBy({ left: direction === 'left' ? -350 : 350, behavior: 'smooth' });
+}
+
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0) scale(1)';
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+document.addEventListener('DOMContentLoaded', () => {
+  new WolfVideoHub();
+  document.querySelectorAll('.stat-box, .video-card, .program-card, .mission-card, .faq-item').forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(30px) scale(0.95)';
+    el.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+    observer.observe(el);
+  });
+  let scrolled = false;
+  window.addEventListener('scroll', () => {
+    if (!scrolled && window.scrollY > 100) {
+      scrolled = true;
+      if (typeof gtag !== 'undefined') gtag('event', 'scroll_depth', { event_category: 'engagement', event_label: 'hero_passed' });
+    }
+  }, { once: true });
+  const modal = document.getElementById('wolfModalPro');
+  modal.addEventListener('click', (e) => {
+    if (e.target === modal) closeModalPro();
+  });
+  document.querySelectorAll('.cta-primary:not(#finalCtaBtn)').forEach(btn => btn.addEventListener('click', () => triggerModalPro('enroll')));
+  document.querySelector('#finalCtaBtn').addEventListener('click', () => triggerModalPro('final'));
+  document.querySelector('#modalConfirmBtn').addEventListener('click', closeModalPro);
+  document.querySelector('.close-modal-pro').addEventListener('click', closeModalPro);
+  document.querySelectorAll('.scroll-btn').forEach(btn => {
+    btn.addEventListener('click', () => scrollPlaylist(btn.classList.contains('left') ? 'left' : 'right'));
+  });
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', function() { toggleFaq(this); });
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeModalPro();
+  });
+  let pageStartTime = Date.now();
+  window.addEventListener('beforeunload', () => {
+    const timeSpent = Math.floor((Date.now() - pageStartTime) / 1000);
+    if (typeof gtag !== 'undefined') gtag('event', 'time_on_page', { event_category: 'engagement', value: timeSpent });
+  });
+});
+</script>
+</div>
+</body>
+</html>
