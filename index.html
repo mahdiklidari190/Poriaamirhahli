@@ -11,42 +11,41 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=JetBrains+Mono:wght@500&display=swap" as="style">
   <link rel="dns-prefetch" href="//images.unsplash.com">
+  <link rel="preload" href="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1920&h=1080&fit=crop&auto=format" as="image" fetchpriority="high">
   
   <style>
     :root {
-      --wolf-black: #0A0A0A; --wolf-gray-900: #0F0F0F; --wolf-gray-800: #1A1A1A; --wolf-gray-700: #252525;
-      --wolf-white: #F5F5F5; --wolf-gold: #D4AF37; --wolf-gold-dark: #A37A00; --wolf-glass: rgba(212, 175, 55, .06);
-      --wolf-glass-strong: rgba(212, 175, 55, .12); --wolf-red: #FF2E63;
-      --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      --font-mono: 'JetBrains Mono', monospace;
-      --fs-hero: clamp(2.5rem, 6vw, 5rem); --fs-h2: clamp(1.8rem, 3.5vw, 3rem); --fs-h3: clamp(1rem, 2vw, 1.3rem);
-      --fs-body: clamp(0.95rem, 1.6vw, 1.05rem);
+      --wolf-black: #0A0A0A; --wolf-gray-900: #0F0F0F; --wolf-gray-800: #1A1A1A;
+      --wolf-white: #F5F5F5; --wolf-gold: #D4AF37; --wolf-gold-dark: #A37A00;
+      --wolf-glass: rgba(212, 175, 55, .06); --wolf-glass-strong: rgba(212, 175, 55, .12);
+      --wolf-red: #FF2E63; --font-primary: 'Inter', sans-serif; --font-mono: 'JetBrains Mono', monospace;
+      --fs-hero: clamp(2.5rem, 6vw, 5rem); --fs-h2: clamp(1.8rem, 3.5vw, 3rem);
+      --fs-h3: clamp(1rem, 2vw, 1.3rem); --fs-body: clamp(0.95rem, 1.6vw, 1.05rem);
       --space-xs: 0.5rem; --space-sm: 1rem; --space-md: 2rem; --space-lg: 4rem; --space-xl: 6rem;
-      --transition: all .4s cubic-bezier(.4, 0, .2, 1); --transition-fast: all .2s cubic-bezier(.4, 0, .2, 1);
+      --transition: all .4s cubic-bezier(.4, 0, .2, 1);
     }
     
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none !important; transition: none !important; } }
     
     * { margin: 0; padding: 0; box-sizing: border-box; }
     .wolves-platform-widget {
       font-family: var(--font-primary); background: var(--wolf-black); color: var(--wolf-white);
       line-height: 1.75; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
-      overflow-x: hidden; content-visibility: auto; contain: layout style paint;
+      overflow-x: hidden; content-visibility: auto; contain-intrinsic-size: auto 100vh;
     }
     
-    /* HERO - Directly on Background */
+    /* HERO */
     .wolves-hero-pro {
       min-height: 100vh; display: flex; align-items: center; justify-content: center;
       padding: var(--space-lg) var(--space-md); position: relative; overflow: hidden;
     }
     
     .hero-bg-image {
-      position: absolute; inset: 0; z-index: 0;
-      background-image: linear-gradient(135deg, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.95) 100%),
-                        url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1920&h=1080&fit=crop&auto=format');
+      position: absolute; inset: 0; z-index: 0; background-image: 
+        linear-gradient(135deg, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.95) 100%),
+        url('https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1920&h=1080&fit=crop&auto=format');
       background-size: cover; background-position: center; background-repeat: no-repeat;
+      width: 100%; height: 100%;
     }
     
     .hero-shapes { position: absolute; inset: 0; pointer-events: none; z-index: 1; }
@@ -55,10 +54,7 @@
     .shape-1 { width: 450px; height: 450px; top: 10%; left: -250px; }
     .shape-2 { width: 300px; height: 300px; bottom: 10%; right: -150px; border-color: var(--wolf-red); animation-delay: -5s; animation-duration: 25s; }
     
-    .hero-content-pro {
-      text-align: center; max-width: 900px; z-index: 2;
-      animation: fadeInUp 1.2s cubic-bezier(.4,0,.2,1);
-    }
+    .hero-content-pro { text-align: center; max-width: 900px; z-index: 2; animation: fadeInUp 1.2s cubic-bezier(.4,0,.2,1); }
     
     .hero-title-pro { font-size: var(--fs-hero); font-weight: 900; letter-spacing: -2px; line-height: 1.1; margin-bottom: var(--space-md);
       background: linear-gradient(120deg, var(--wolf-gold) 0%, var(--wolf-white) 50%, var(--wolf-gold-dark) 100%);
@@ -82,12 +78,12 @@
       animation: rippleEffect .6s linear; pointer-events: none; }
     @keyframes rippleEffect { to { transform: scale(4); opacity: 0; } }
     
-    /* ABOUT with Image - Mobile-First */
+    /* ABOUT */
     .wolves-about { padding: var(--space-xl) var(--space-md); }
     .about-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: var(--space-lg);
       align-items: center; }
     
-    .about-image-wrapper { position: relative; order: -1; } /* Mobile: image on top */
+    .about-image-wrapper { position: relative; order: -1; }
     .about-image { width: 100%; height: auto; border-radius: 20px; box-shadow: 0 20px 40px rgba(0, 0, 0, .5); }
     
     .about-content h2 { font-size: var(--fs-h2); color: var(--wolf-gold); margin-bottom: var(--space-md);
@@ -100,7 +96,7 @@
     
     .stat-box { background: var(--wolf-glass); border-radius: 12px; padding: var(--space-md); text-align: center;
       border: 1px solid rgba(255, 255, 255, .08); transition: var(--transition); will-change: transform;
-      position: relative; overflow: hidden; }
+      position: relative; overflow: hidden; contain-intrinsic-size: 120px 120px; }
     
     .stat-box::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
       background: linear-gradient(90deg, transparent, var(--wolf-glass-strong), transparent); transition: left .6s; }
@@ -113,10 +109,10 @@
     
     @media (min-width: 769px) {
       .about-grid { grid-template-columns: 1fr 1fr; }
-      .about-image-wrapper { order: 2; } /* Desktop: image on right */
+      .about-image-wrapper { order: 2; }
     }
     
-    /* MISSION & VISION with Image Fade */
+    /* MISSION & VISION */
     .wolves-mission-vision { padding: var(--space-xl) var(--space-md); background: linear-gradient(180deg, var(--wolf-gray-900) 0%, var(--wolf-black) 100%); }
     .mission-grid { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: var(--space-lg); }
     
@@ -126,31 +122,28 @@
     .mission-card:hover, .vision-card:hover { border-color: var(--wolf-gold); transform: translateY(-10px);
       box-shadow: 0 20px 40px rgba(212, 175, 55, .1); }
     
-    .card-image-wrapper { position: relative; width: 100%; height: 200px; overflow: hidden; }
-    .card-image { width: 100%; height: 100%; object-fit: cover; }
-    .card-image::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60px;
-      background: linear-gradient(to bottom, transparent 0%, var(--wolf-glass) 100%); }
+    .card-image-wrapper { position: relative; width: 100%; height: 200px; z-index: 1; }
+    .card-image { width: 100%; height: 100%; object-fit: cover; position: relative; z-index: 2; }
+    .card-image-wrapper::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60px;
+      background: linear-gradient(to bottom, transparent 0%, var(--wolf-glass) 100%); z-index: 3; pointer-events: none; }
     
-    .card-content { padding: var(--space-md); }
+    .card-content { padding: var(--space-md); position: relative; z-index: 4; }
     .mission-card h3, .vision-card h3 { color: var(--wolf-gold); font-size: var(--fs-h3); margin-bottom: var(--space-sm);
       text-transform: uppercase; letter-spacing: 1px; }
     
-    @media (min-width: 769px) {
-      .mission-grid { grid-template-columns: 1fr 1fr; }
-    }
+    @media (min-width: 769px) { .mission-grid { grid-template-columns: 1fr 1fr; } }
     
-    /* VIDEO HUB - No Scroll Buttons, Auto-scroll Removed */
+    /* VIDEO */
     .wolves-video-hub { padding: var(--space-xl) var(--space-md); max-width: 1400px; margin: 0 auto; }
     .video-main-title { text-align: center; font-size: var(--fs-h2); color: var(--wolf-gold);
       margin-bottom: var(--space-md); text-transform: uppercase; letter-spacing: 2px; }
-    .video-main-title span { color: var(--wolf-white); font-weight: 400; }
     
     .video-standalone { width: 100%; height: 650px; border-radius: 24px; box-shadow: 0 30px 60px rgba(0, 0, 0, .5);
       background: linear-gradient(135deg, #000 0%, var(--wolf-gray-800) 100%); display: block; }
     
     .video-controls-standalone { background: var(--wolf-gray-900); padding: var(--space-md);
       border-radius: 0 0 24px 24px; margin-top: -5px; border: 1px solid rgba(255, 255, 255, .08); border-top: none;
-      display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
+      display: flex; justify-content: space-between; align-items: center; backdrop-filter: blur(10px); }
     
     .current-video-info { display: flex; align-items: center; gap: var(--space-sm); }
     #currentVideoTitle { font-weight: 600; color: var(--wolf-white); font-size: var(--fs-h3); }
@@ -170,10 +163,10 @@
       scroll-snap-align: start; position: relative; will-change: transform; }
     .video-card:hover { transform: translateY(-8px) scale(1.02); border-color: var(--wolf-gold);
       box-shadow: 0 15px 40px rgba(212, 175, 55, .15); }
-    .video-card.active { border-color: var(--wolf-gold); background: var(--wolf-glass-strong); box-shadow: 0 10px 30px rgba(212, 175, 55, .1); }
+    .video-card.active { border-color: var(--wolf-gold); background: var(--wolf-glass-strong);
+      box-shadow: 0 10px 30px rgba(212, 175, 55, .1); }
     
-    .thumbnail-wrapper { position: relative; aspect-ratio: 16/9; overflow: hidden;
-      background: linear-gradient(135deg, var(--wolf-gray-800), var(--wolf-gray-700)); }
+    .thumbnail-wrapper { position: relative; aspect-ratio: 16/9; overflow: hidden; background: linear-gradient(135deg, var(--wolf-gray-800), var(--wolf-gray-700)); }
     .thumbnail-wrapper img { width: 100%; height: 100%; object-fit: cover; transition: transform .3s ease; }
     .video-card:hover .thumbnail-wrapper img { transform: scale(1.08); }
     .thumbnail-wrapper::before { content: ''; position: absolute; inset: 0; background: #000; opacity: .25;
@@ -197,7 +190,7 @@
     .video-meta h4 { font-size: var(--fs-h3); margin-bottom: var(--space-xs); color: var(--wolf-white); font-weight: 600; }
     .video-meta p { font-size: .9rem; color: rgba(255, 255, 255, .6); margin: 0; line-height: 1.4; }
     
-    /* PROGRAMS with Circular Image Icons */
+    /* PROGRAMS */
     .wolves-programs { padding: var(--space-xl) var(--space-md); background: radial-gradient(circle at 30% 40%, var(--wolf-glass) 0%, transparent 50%); }
     .programs-container { max-width: 1200px; margin: 0 auto; }
     .programs-title { text-align: center; font-size: var(--fs-h2); color: var(--wolf-gold);
@@ -224,7 +217,7 @@
     .program-card p { color: rgba(255, 255, 255, .7); font-size: .95rem; transition: color .3s; }
     .program-card:hover p { color: rgba(255, 255, 255, .9); }
     
-    /* FAQ - Toggle with × */
+    /* FAQ - ORIGINAL STYLE */
     .wolves-faq { padding: var(--space-xl) var(--space-md); max-width: 900px; margin: 0 auto; }
     .faq-title { text-align: center; font-size: var(--fs-h2); color: var(--wolf-gold);
       margin-bottom: var(--space-lg); text-transform: uppercase; letter-spacing: 2px; }
@@ -241,7 +234,7 @@
       width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; line-height: 1;
       border: 2px solid var(--wolf-gold); background: transparent; color: var(--wolf-gold); flex-shrink: 0;
       user-select: none; min-height: 44px; min-width: 44px; }
-    .faq-toggle.active { transform: rotate(45deg); background: var(--wolf-gold); color: var(--wolf-black); }
+    .faq-toggle.active { background: var(--wolf-gold); color: var(--wolf-black); }
     
     .faq-answer { padding: 0 var(--space-md); color: rgba(255, 255, 255, .8);
       max-height: 0; overflow: hidden; transition: max-height .5s cubic-bezier(.4, 0, .2, 1), padding .5s cubic-bezier(.4, 0, .2, 1); }
@@ -277,10 +270,7 @@
     @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
     @keyframes float { 0%, 100% { transform: translate(0,0) rotate(0deg); } 33% { transform: translate(40px,-40px) rotate(120deg); } 66% { transform: translate(-30px,30px) rotate(240deg); } }
     
-    @media (max-width: 968px) {
-      .video-standalone { height: 400px; }
-    }
-    
+    @media (max-width: 968px) { .video-standalone { height: 400px; } }
     @media (max-width: 640px) {
       :root { --space-md: 1.5rem; --space-lg: 3rem; --space-xl: 5rem; }
       .cta-primary { padding: 18px 40px; font-size: 1rem; }
@@ -294,7 +284,7 @@
 <body>
 <div class="wolves-platform-widget">
 
-<!-- Schema.org Structured Data -->
+<!-- Schema.org -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -309,18 +299,6 @@
   "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "2847", "bestRating": "5" },
   "address": { "@type": "PostalAddress", "addressCountry": "US" },
   "sameAs": ["https://www.instagram.com/therealwolvesacademy", "https://www.youtube.com/@therealwolvesacademy"]
-}
-</script>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    { "@type": "Question", "name": "What is the gamified rank system?", "acceptedAnswer": { "@type": "Answer", "text": "Our rank system transforms learning into an addictive game. Start as a Cub and climb to Legend status by completing real business missions. Each rank unlocks exclusive capital opportunities, mentorship access, and revenue-sharing partnerships. This isn't theory—it's a battlefield where achievements equal real money in your bank account." } },
-    { "@type": "Question", "name": "Who builds the courses?", "acceptedAnswer": { "@type": "Answer", "text": "Every course is designed by 7-figure entrepreneurs who've been in the trenches. No fluff. No outdated theory. Just battle-tested strategies that work in 2024's market." } },
-    { "@type": "Question", "name": "How does the community work?", "acceptedAnswer": { "@type": "Answer", "text": "Join a global brotherhood of 2,847+ creators, entrepreneurs, and warriors united by ambition. Our Discord runs 24/7 with live accountability calls, weekly masterminds, and rank-based mentorship." } },
-    { "@type": "Question", "name": "What makes this different?", "acceptedAnswer": { "@type": "Answer", "text": "We don't just teach business—we forge disciplined individuals ready to dominate in business and life. Our frameworks integrate mindset mastery, money mechanics, and elite performance systems." } }
-  ]
 }
 </script>
 
@@ -341,15 +319,15 @@
 <!-- ========== ABOUT ========== -->
 <section class="wolves-about" id="about">
   <div class="about-grid">
+    <div class="about-image-wrapper">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop&auto=format" alt="Elite entrepreneur in action" class="about-image" width="600" height="600">
+    </div>
     <div class="about-content">
       <h2>About The Real Wolves Academy</h2>
       <p>The Real Wolves Academy is the educational and empowerment division of AmirHajlou Holding, built to awaken leadership, wealth, and self-mastery.</p>
       <p><strong>This isn’t a typical online school</strong>—it’s a gamified academy where personal growth meets business evolution. Here, students don’t just learn skills—they earn ranks, complete missions, and join a global brotherhood of creators, entrepreneurs, and warriors united by ambition.</p>
       <p>The Academy merges entertainment, accountability, and elite mentorship to forge stronger, smarter, more disciplined individuals ready to dominate in business and life.</p>
       <p><strong>Target Audience:</strong> Aspiring entrepreneurs, creators, and leaders who seek more than theory—those who crave transformation, freedom, and financial independence through modern education.</p>
-    </div>
-    <div class="about-image-wrapper">
-      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=600&fit=crop&auto=format" alt="Elite entrepreneur in action" class="about-image">
     </div>
     <div class="about-stats">
       <div class="stat-box">
@@ -376,7 +354,7 @@
 <section class="wolves-video-hub" id="training">
   <h2 class="video-main-title">The Wolf's Den <span>(Free Training Videos)</span></h2>
   
-  <video id="wolfVideoPlayer" class="video-standalone" controls poster="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=450&fit=crop&auto=format" fetchpriority="high">
+  <video id="wolfVideoPlayer" class="video-standalone" controls poster="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&h=450&fit=crop&auto=format" fetchpriority="high" aria-label="Main video player">
     <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
     <track kind="captions" src="captions_en.vtt" srclang="en" label="English">
     Your browser does not support the video tag.
@@ -392,7 +370,7 @@
   
   <div class="playlist-section">
     <div class="playlist-wrapper" id="playlistWrapper">
-      <div class="playlist-horizontal" id="videoPlaylist"></div>
+      <div class="playlist-horizontal" id="videoPlaylist" role="listbox" aria-label="Video playlist"></div>
     </div>
   </div>
 </section>
@@ -402,7 +380,7 @@
   <div class="mission-grid">
     <div class="mission-card">
       <div class="card-image-wrapper">
-        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=200&fit=crop&auto=format" alt="Mission" class="card-image">
+        <img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=200&fit=crop&auto=format" alt="Mission" class="card-image" width="600" height="200">
       </div>
       <div class="card-content">
         <h3>Mission</h3>
@@ -411,7 +389,7 @@
     </div>
     <div class="vision-card">
       <div class="card-image-wrapper">
-        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=200&fit=crop&auto=format" alt="Vision" class="card-image">
+        <img src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=600&h=200&fit=crop&auto=format" alt="Vision" class="card-image" width="600" height="200">
       </div>
       <div class="card-content">
         <h3>Vision</h3>
@@ -429,7 +407,7 @@
       <article class="program-card" itemscope itemtype="https://schema.org/Course">
         <meta itemprop="name" content="Entrepreneurship & Business Strategy">
         <div class="program-icon-wrapper">
-          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=60&h=60&fit=crop&auto=format" alt="Strategy Icon" class="program-icon">
+          <img src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=60&h=60&fit=crop&auto=format" alt="Strategy Icon" class="program-icon" width="60" height="60">
         </div>
         <h3>Entrepreneurship & Business Strategy</h3>
         <p>Zero-to-launch frameworks for building 7-figure businesses. Learn market validation, product-market fit, and scaling systems that don't require a co-founder or VC money.</p>
@@ -437,7 +415,7 @@
       <article class="program-card" itemscope itemtype="https://schema.org/Course">
         <meta itemprop="name" content="Digital Skills & Marketing">
         <div class="program-icon-wrapper">
-          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=60&h=60&fit=crop&auto=format" alt="Marketing Icon" class="program-icon">
+          <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=60&h=60&fit=crop&auto=format" alt="Marketing Icon" class="program-icon" width="60" height="60">
         </div>
         <h3>Digital Skills & Marketing</h3>
         <p>Master paid ads, SEO, content systems, and sales funnels that print money in 2024. No theory—just campaigns we've battle-tested ourselves.</p>
@@ -445,7 +423,7 @@
       <article class="program-card" itemscope itemtype="https://schema.org/Course">
         <meta itemprop="name" content="Financial Growth & Wealth Building">
         <div class="program-icon-wrapper">
-          <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=60&h=60&fit=crop&auto=format" alt="Wealth Icon" class="program-icon">
+          <img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=60&h=60&fit=crop&auto=format" alt="Wealth Icon" class="program-icon" width="60" height="60">
         </div>
         <h3>Financial Growth & Wealth Building</h3>
         <p>Tax optimization, asset allocation, and cash flow engineering. We teach you how to keep what you earn and multiply it without gambling on crypto.</p>
@@ -453,7 +431,7 @@
       <article class="program-card" itemscope itemtype="https://schema.org/Course">
         <meta itemprop="name" content="Mindset Mastery & Leadership">
         <div class="program-icon-wrapper">
-          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&auto=format" alt="Leadership Icon" class="program-icon">
+          <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=60&h=60&fit=crop&auto=format" alt="Leadership Icon" class="program-icon" width="60" height="60">
         </div>
         <h3>Mindset Mastery & Leadership</h3>
         <p>Neuroscience-backed routines, discipline protocols, and leadership systems used by elite performers. This is where you rewrite your identity.</p>
@@ -461,7 +439,7 @@
       <article class="program-card" itemscope itemtype="https://schema.org/Course">
         <meta itemprop="name" content="Productivity & Self-Discipline Systems">
         <div class="program-icon-wrapper">
-          <img src="https://images.unsplash.com/photo-1519452575417-564c1401ecc0?w=60&h=60&fit=crop&auto=format" alt="Productivity Icon" class="program-icon">
+          <img src="https://images.unsplash.com/photo-1519452575417-564c1401ecc0?w=60&h=60&fit=crop&auto=format" alt="Productivity Icon" class="program-icon" width="60" height="60">
         </div>
         <h3>Productivity & Self-Discipline Systems</h3>
         <p>Atomic habit stacks, time-blocking mastery, and deep work protocols. We don't manage time—we weaponize it against your competition.</p>
@@ -470,14 +448,14 @@
   </div>
 </section>
 
-<!-- ========== FAQ ========== -->
+<!-- ========== FAQ (ORIGINAL STYLE) ========== -->
 <section class="wolves-faq" itemscope itemtype="https://schema.org/FAQPage">
   <h2 class="faq-title">Why The Real Wolves Academy</h2>
   
   <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-    <div class="faq-question" itemprop="name">
+    <div class="faq-question">
       <span>What is the gamified rank system?</span>
-      <span class="faq-toggle" aria-hidden="true">+</span>
+      <span class="faq-toggle">+</span>
     </div>
     <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
       <p>Our rank system transforms learning into an addictive game. Start as a Cub and climb to Legend status by completing real business missions. Each rank unlocks exclusive capital opportunities, mentorship access, and revenue-sharing partnerships. This isn't theory—it's a battlefield where achievements equal real money in your bank account.</p>
@@ -485,9 +463,9 @@
   </div>
   
   <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-    <div class="faq-question" itemprop="name">
+    <div class="faq-question">
       <span>Who builds the courses?</span>
-      <span class="faq-toggle" aria-hidden="true">+</span>
+      <span class="faq-toggle">+</span>
     </div>
     <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
       <p>Every course is designed by 7-figure entrepreneurs who've been in the trenches. No fluff. No outdated theory. Just battle-tested strategies that work in 2024's market.</p>
@@ -495,9 +473,9 @@
   </div>
   
   <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-    <div class="faq-question" itemprop="name">
+    <div class="faq-question">
       <span>How does the community work?</span>
-      <span class="faq-toggle" aria-hidden="true">+</span>
+      <span class="faq-toggle">+</span>
     </div>
     <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
       <p>Join a global brotherhood of 2,847+ creators, entrepreneurs, and warriors united by ambition. Our Discord runs 24/7 with live accountability calls, weekly masterminds, and rank-based mentorship.</p>
@@ -505,9 +483,9 @@
   </div>
   
   <div class="faq-item" itemscope itemprop="mainEntity" itemtype="https://schema.org/Question">
-    <div class="faq-question" itemprop="name">
+    <div class="faq-question">
       <span>What makes this different?</span>
-      <span class="faq-toggle" aria-hidden="true">+</span>
+      <span class="faq-toggle">+</span>
     </div>
     <div class="faq-answer" itemprop="acceptedAnswer" itemscope itemtype="https://schema.org/Answer">
       <p>We don't just teach business—we forge disciplined individuals ready to dominate in business and life. Our frameworks integrate mindset mastery, money mechanics, and elite performance systems.</p>
@@ -552,7 +530,6 @@
 (function() {
   'use strict';
   
-  // DEMO VIDEO URLs - Replace with your actual videos
   const videoData = [
     {id:'intro', title:'Welcome To The Pack', description:'Your first mission briefing - Learn how our gamified academy works', duration:'4:32', thumbnail:'https://images.unsplash.com/photo-1553877522-43269d4ea984?w=400&h=225&fit=crop&auto=format', videoUrl:'https://www.w3schools.com/html/mov_bbb.mp4'},
     {id:'mindset', title:'The Wolf Mindset', description:'How champions think differently to dominate markets', duration:'7:15', thumbnail:'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=400&h=225&fit=crop&auto=format', videoUrl:'https://www.w3schools.com/html/mov_bbb.mp4'},
@@ -580,12 +557,13 @@
     
     renderPlaylist() {
       this.playlist.innerHTML = videoData.map((video, index) => `
-        <div class="video-card ${index === 0 ? 'active' : ''}" data-video-id="${video.id}" data-index="${index}" itemscope itemtype="https://schema.org/VideoObject">
+        <div class="video-card ${index === 0 ? 'active' : ''}" data-video-id="${video.id}" data-index="${index}" 
+             itemscope itemtype="https://schema.org/VideoObject" role="option" aria-selected="${index === 0}">
           <meta itemprop="name" content="${video.title}">
           <meta itemprop="description" content="${video.description}">
           <meta itemprop="duration" content="${video.duration}">
           <div class="thumbnail-wrapper">
-            <img src="${video.thumbnail}" alt="${video.title} video thumbnail" loading="lazy" itemprop="thumbnailUrl">
+            <img src="${video.thumbnail}" alt="${video.title} video thumbnail" loading="lazy" itemprop="thumbnailUrl" width="400" height="225">
             <div class="play-overlay" tabindex="0" role="button"><div class="play-icon">▶</div></div>
             <div class="video-duration-badge">${video.duration}</div>
           </div>
@@ -607,6 +585,7 @@
       
       document.querySelectorAll('.video-card').forEach((card, i) => {
         card.classList.toggle('active', i === index);
+        card.setAttribute('aria-selected', i === index);
       });
       
       this.currentIndex = index;
@@ -615,8 +594,8 @@
       if (activeCard) activeCard.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
       
       this.player.onerror = () => {
-        showToast('⚠️ Video load failed. Check your connection or try another.');
         this.player.poster = video.thumbnail;
+        showToast('⚠️ Video load failed. Check your connection.');
       };
     }
     
@@ -626,8 +605,6 @@
         if (!card) return;
         const index = parseInt(card.dataset.index, 10);
         this.loadVideo(index);
-        
-        // Scroll to video player section (but don't autoplay)
         document.getElementById('training').scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
       
@@ -659,6 +636,8 @@
     if (modal) {
       modal.style.display = 'grid';
       document.body.style.overflow = 'hidden';
+      const focusable = modal.querySelectorAll('button, input');
+      if (focusable.length) focusable[0].focus();
     }
     if (typeof window.gtag !== 'undefined') {
       window.gtag('event', 'modal_triggered', { event_category: 'conversion', event_label: type });
@@ -693,7 +672,7 @@
       }
     });
     
-    // Toggle current FAQ (between + and ×)
+    // Toggle current (between + and ×)
     const isActive = answer.classList.contains('active');
     answer.classList.toggle('active', !isActive);
     toggle.classList.toggle('active', !isActive);
@@ -809,7 +788,7 @@
       navigator.serviceWorker.register('/sw.js').catch(() => {});
     }
     
-    console.log('🐺 Wolves Academy v3.0 - Fully Initialized');
+    console.log('🐺 Wolves Academy v4.1 - FAQ Fixed');
   });
 })();
 </script>
